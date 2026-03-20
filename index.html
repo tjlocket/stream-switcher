@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classroom Streams</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 15px 0;
+  }
+
+  .player-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2a2a2a;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  button:hover {
+    background: #444;
+  }
+
+  .active {
+    background: #4CAF50;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Live Classroom Streams</h1>
+
+<div class="player-container">
+  <iframe id="player"
+    src="https://www.youtube.com/embed/mPxZsBGACx4?playsinline=1"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="buttons">
+  <button onclick="switchVideo(this, 'mPxZsBGACx4')" class="active">Room 16 - Armstrong</button>
+  <button onclick="switchVideo(this, 'Wk_icVhqcrA')">Room 17 - Noaksson</button>
+  <button onclick="switchVideo(this, 'zAtviqEOEVs')">Room 18 - Perez</button>
+  <button onclick="switchVideo(this, 'AY3vYJlsBwo')">Room 19 - Turner</button>
+  <button onclick="switchVideo(this, 'rSZf4G9UpyY')">Room 20 - Hassell</button>
+  <button onclick="switchVideo(this, 'Jup-44HSAmk')">Room 21 - Stottlemyer</button>
+</div>
+
+<script>
+function switchVideo(button, videoId) {
+  const player = document.getElementById("player");
+  player.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1&playsinline=1";
+
+  // Highlight active button
+  document.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+}
+</script>
+
+</body>
+</html>
